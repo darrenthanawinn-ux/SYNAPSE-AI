@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    @apply bg-win-desktop font-sans text-[11px] text-black;
+    overflow: hidden;
+  }
+
+  /* Safari makes inputs uneditable under user-select: none, so opt them back in. */
+  input,
+  textarea {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  * {
+    scrollbar-color: #c0c0c0 #dfdfdf;
+  }
+
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: repeating-conic-gradient(#ffffff 0% 25%, #c0c0c0 0% 50%) 50% / 2px 2px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    box-shadow:
+      inset -1px -1px #0a0a0a,
+      inset 1px 1px #ffffff,
+      inset -2px -2px #808080,
+      inset 2px 2px #dfdfdf;
+  }
+
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Raised surface: window frames, buttons, menus. */
+  .bevel-out {
+    background: #c0c0c0;
+    box-shadow:
+      inset -1px -1px #0a0a0a,
+      inset 1px 1px #ffffff,
+      inset -2px -2px #808080,
+      inset 2px 2px #dfdfdf;
+  }
+
+  /* Sunken surface: panels and status fields. */
+  .bevel-in {
+    box-shadow:
+      inset -1px -1px #ffffff,
+      inset 1px 1px #808080,
+      inset -2px -2px #dfdfdf,
+      inset 2px 2px #0a0a0a;
+  }
+
+  /* Sunken white text field. */
+  .bevel-field {
+    background: #ffffff;
+    color: #000000;
+    box-shadow:
+      inset -1px -1px #ffffff,
+      inset 1px 1px #808080,
+      inset -2px -2px #dfdfdf,
+      inset 2px 2px #0a0a0a;
+  }
+
+  .bevel-thin-out {
+    box-shadow:
+      inset -1px -1px #808080,
+      inset 1px 1px #ffffff;
+  }
+
+  .bevel-thin-in {
+    box-shadow:
+      inset -1px -1px #ffffff,
+      inset 1px 1px #808080;
+  }
+
+  .taskbar-surface {
+    background: #c0c0c0;
+    border-top: 1px solid #dfdfdf;
+    box-shadow: inset 0 1px #ffffff;
+  }
+
+  .btn95 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 23px;
+    padding: 0 10px;
+    background: #c0c0c0;
+    color: #000000;
+    white-space: nowrap;
+    cursor: default;
+    box-shadow:
+      inset -1px -1px #0a0a0a,
+      inset 1px 1px #ffffff,
+      inset -2px -2px #808080,
+      inset 2px 2px #dfdfdf;
+  }
+
+  .btn95:active:not(:disabled),
+  .btn95.is-active {
+    box-shadow:
+      inset -1px -1px #ffffff,
+      inset 1px 1px #0a0a0a,
+      inset -2px -2px #dfdfdf,
+      inset 2px 2px #808080;
+  }
+
+  .btn95:focus-visible {
+    outline: 1px dotted #000000;
+    outline-offset: -5px;
+  }
+
+  .btn95:disabled {
+    color: #808080;
+    text-shadow: 1px 1px #ffffff;
+  }
+
+  .btn95-sm {
+    min-height: 0;
+    width: 16px;
+    height: 14px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .menu-item:hover:not(:disabled) {
+    background: #000080;
+    color: #ffffff;
+  }
+
+  .menu-item:disabled {
+    color: #808080;
+    text-shadow: 1px 1px #ffffff;
+  }
+
+  .menu-sep {
+    height: 2px;
+    margin: 3px 2px;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #ffffff;
+  }
+}
